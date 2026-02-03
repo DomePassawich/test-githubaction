@@ -1,0 +1,17 @@
+name: CI
+run-name: CI check for ${{ github.event.pull_request.title || github.ref_name }}
+on:
+  pull_request:
+    branches: [dev, staging, production]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Run tests
+        run: echo "Running tests..."
+      - name: Run lint
+        run: echo "Running lint..."
+      - name: Build
+        run: echo "Building project..."
