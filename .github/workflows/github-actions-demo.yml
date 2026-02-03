@@ -1,0 +1,11 @@
+name: Continuous Integration
+
+on: [push]
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: cd backend && npm i
+      - run: cd backend && npm run build
